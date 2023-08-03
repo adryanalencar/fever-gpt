@@ -1,6 +1,7 @@
 const {config} = require('dotenv') 
 config()
 
+const fs = require('fs')
 const WebSocket = require('ws');
 const openai = require("./connection")
 
@@ -25,11 +26,30 @@ function buildMessage(user, content){
     }
 }
 
+function checkBlackList(chat_id){
+    try {
+        const content = fs.readFileSync("/tmp/blacklist", {encoding:'utf8', flag:'r'}).split("\n")
+        if(content.indexOf(chat_id) !== -1){
+            return true
+        }
+
+    } catch (error) {
+        console.error("Error", error)
+    }
+    
+    return false    
+}
+
 async function threatNewMessage(eventData) {
 
     if(eventData.data.user_id != user.id){
         const messages = openai.template;
         const chatId = eventData.data.chat_id;
+
+        if(!checkBlackList(chatId)){
+            return
+        }
+
         const content = eventData.data.message;
         const user = eventData.data.user.user_name;
         const newMessage = buildMessage(user, content);

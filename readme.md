@@ -76,7 +76,7 @@ O Fever-GPT é capaz de extrair essas informações do treinamento prévio e us�
 
 6. Execute o container com a imagem criada:
    ```
-   docker run -d --restart=always --env-file .env fever-gpt
+   docker run -d --restart=always --env-file .env -v /blacklist:/tmp/blacklist fever-gpt
    ```
 
 Com estas instruções, você poderá executar o projeto Fever-GPT tanto diretamente pelo Node.js quanto via Docker.
