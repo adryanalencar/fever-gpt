@@ -36,7 +36,7 @@ function checkBlackList(chat_id){
     } catch (error) {
         console.error("Error", error)
     }
-    
+
     return false    
 }
 
@@ -46,7 +46,7 @@ async function threatNewMessage(eventData) {
         const messages = openai.template;
         const chatId = eventData.data.chat_id;
 
-        if(!checkBlackList(chatId)){
+        if(checkBlackList(chatId)){
             return
         }
 
