@@ -1,0 +1,27 @@
+{
+  "name": "fever-gpt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adryanalencar/fever-gpt.git"
+  },
+  "author": "Adryan Alencar <adryan.alencar@mq-link.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adryanalencar/fever-gpt/issues"
+  },
+  "homepage": "https://github.com/adryanalencar/fever-gpt#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^3.3.0",
+    "uuid": "^9.0.0",
+    "websocket": "^1.0.34",
+    "ws": "^8.13.0"
+  }
+}
