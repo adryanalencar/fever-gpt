@@ -14,7 +14,7 @@ module.exports = {
     connection: openai,
     settings: {
         temperature: 1,
-        max_tokens: 200,
+        max_tokens: Number(process.env.max_tokens) || 200,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
